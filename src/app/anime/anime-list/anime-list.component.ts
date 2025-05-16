@@ -12,7 +12,7 @@ export class AnimeListComponent implements OnInit {
   selectedBAnime!: Anime;
   selected = false;
   animes: Array<Anime> = [];
-  ratingPromedio: number = 0;
+  ratingPromedio: string = "";
   constructor(private animeService: AnimeService) { }
 
   getAnimes(): void {
@@ -25,7 +25,7 @@ export class AnimeListComponent implements OnInit {
       for (let i = 0; i < animes.length; i++) {
         suma += parseFloat(animes[i].Rating);
       }
-      this.ratingPromedio = (suma / animes.length);
+      this.ratingPromedio = (suma / animes.length).toFixed(2);
     });
   }
 
